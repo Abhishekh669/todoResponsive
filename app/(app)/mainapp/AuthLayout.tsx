@@ -1,4 +1,3 @@
-"use client"
 import { Button } from '@/components/ui/button';
 import { useConvexAuth } from 'convex/react';
 import { Loader } from 'lucide-react';
@@ -11,8 +10,9 @@ export default function AppLayout({
     children: React.ReactNode;
   }) {
     const router = useRouter()
-    const {isAuthenticated, isLoading} = useConvexAuth();
-    const [myStatus, setMyStatus] = useState<Boolean>(false);
+    const { isAuthenticated, isLoading } = useConvexAuth();
+    const [myStatus, setMyStatus] = useState<boolean>(false);
+
     useEffect(() =>{
         checkAuth();
     },[isAuthenticated])
@@ -22,9 +22,9 @@ export default function AppLayout({
             router.push("/");
         }
     }, [isLoading, isAuthenticated, router]);
+
     const checkAuth = () =>{
          setMyStatus(isAuthenticated)
-
     }
     
     return (
@@ -42,12 +42,9 @@ export default function AppLayout({
                     myStatus &&   (
                         <div>
                             {children}
-                            
                         </div>
                     )
                 }
-                
-               
             </div>
         </>
     );

@@ -24,32 +24,34 @@ const page = () => {
                 completed: data.completed // Corrected property access
             });
         }
-        setData({ ...data, text: "" }); // Clear text after creating todo
+        setData({...data, text: ""}); // Clear text after creating todo
     };
-    console.log("this is data", data)
+        console.log("this is data",data)
     return (
-        <div className="w-auto   flex flex-col items-center">
-            <div className=" w-full md:w-[50%] lg:w-[40%] flex justify-center my-4 p-4 lg:p-5 border-b-2 border-red-600">
-                <Input type="text" className="border  border-red-600 mx-1" value={data.text} onChange={(e) => setData({ ...data, text: e.target.value })} onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                        handleClick();
-                        setData({ ...data, text: "" }); // Clear text after creating todo
-                    }
-                }} />
-                <Button className="border border-red-600 mx-1 lg:text-[20px] lg:p-4 text-red-600 hover:text-white active:text-green-600" onClick={handleClick}>create</Button>
+        <AppLayout>
+            <div className="w-auto   flex flex-col items-center">
+                <div className=" w-full md:w-[50%] lg:w-[40%] flex justify-center my-4 p-4 lg:p-5 border-b-2 border-red-600">
+                    <Input type="text" className="border  border-red-600 mx-1" value={data.text} onChange={(e) => setData({...data, text: e.target.value})} onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            handleClick();
+                            setData({...data, text: ""}); // Clear text after creating todo
+                        }
+                    }}  />
+                    <Button className="border border-red-600 mx-1 lg:text-[20px] lg:p-4 text-red-600 hover:text-white active:text-green-600" onClick={handleClick}>create</Button>
+                </div>
+                <div className="text-[20px] md:text-[25px] border-b-2 w-auto px-2 text-center py-1 font-semibold mb-4 border-red-600 text-red-600">Your Todo Works :</div>
+                <div className={cn(
+                    "  lg:w-[40%] lg:my-4 rounded-md my-2 max-h-[35rem] overflow-y-scroll no-scrollbar",
+                    todos && todos.length > 0 ? "border-2 border-red-600" : "border-none"
+                )}>
+                    {todos?.map((todo) => (
+                        <div key={todo._id}>
+                            <TodoData todo={todo} />
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className="text-[20px] md:text-[25px] border-b-2 w-auto px-2 text-center py-1 font-semibold mb-4 border-red-600 text-red-600">Your Todo Works :</div>
-            <div className={cn(
-                "  lg:w-[40%] lg:my-4 rounded-md my-2 max-h-[35rem] overflow-y-scroll no-scrollbar",
-                todos && todos.length > 0 ? "border-2 border-red-600" : "border-none"
-            )}>
-                {todos?.map((todo) => (
-                    <div key={todo._id}>
-                        <TodoData todo={todo} />
-                    </div>
-                ))}
-            </div>
-        </div>
+        </AppLayout>
     );
 };
 
