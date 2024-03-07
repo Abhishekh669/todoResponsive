@@ -20,7 +20,7 @@ export default function AppLayout({
     
     useEffect(() =>{
         checkAuth();
-    },[isAuthenticated])
+    },[isAuthenticated, checkAuth])
 
     useEffect(() => {
         if (!isLoading && !isAuthenticated) {
@@ -39,7 +39,7 @@ export default function AppLayout({
                 }
 
                 {
-    (
+                    myStatus &&   (
                         <div>
                             {children}
                             

@@ -5,10 +5,8 @@ import React, { use, useState } from 'react'
 import { TodoType } from '@/types/type'
 import { useMutation } from 'convex/react';
 import { api } from '@/convex/_generated/api';
-import { Id } from '@/convex/_generated/dataModel';
 import { LiaEditSolid, LiaSaveSolid} from "react-icons/lia";
 import { MdDelete } from "react-icons/md";
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 interface TodoDataProps {
     todo: TodoType;
 }
