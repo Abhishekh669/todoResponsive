@@ -1,0 +1,41 @@
+  {/* {
+                    isLoading && !isAuthenticated && (
+                        <div>
+                            <Loader className='animate-spin h-5 w-5' />
+                        </div>
+                    )
+                }
+                {
+                    !isLoading && isAuthenticated && (
+                        <UserButton />
+                    )
+                }
+                {
+                    !isLoading && !isAuthenticated && (
+                        <button
+                            className={buttonVariants({
+                                variant: "outline",
+                            })}
+                        >
+                            <SignInButton>
+                                Sign in
+                            </SignInButton>
+                        </button>
+                    )
+                } */}
+                {/* {
+                    (isLoading && !isAuthenticated) &&  (
+                        <div className=' '>
+                            <Loader className='animate-spin h-5 w-5' />
+                        </div>
+                    )
+                }
+
+                {
+                    (!isLoading && isAuthenticated) && (
+                        <Button>
+                            
+                        </Button>
+                    ) 
+
+                } */}
