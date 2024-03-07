@@ -13,20 +13,20 @@ export default function AppLayout({
     const router = useRouter()
     const {isAuthenticated, isLoading} = useConvexAuth();
     const [myStatus, setMyStatus] = useState<Boolean>(false);
-    const checkAuth = () =>{
-         setMyStatus(isAuthenticated)
-
-    }
-    
     useEffect(() =>{
         checkAuth();
-    },[isAuthenticated, checkAuth])
+    },[isAuthenticated])
 
     useEffect(() => {
         if (!isLoading && !isAuthenticated) {
             router.push("/");
         }
     }, [isLoading, isAuthenticated, router]);
+    const checkAuth = () =>{
+         setMyStatus(isAuthenticated)
+
+    }
+    
     return (
         <>
             <div className='min-w-screen  '>

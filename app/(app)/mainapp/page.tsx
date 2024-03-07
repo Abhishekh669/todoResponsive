@@ -1,17 +1,14 @@
 "use client";
-import { useState } from "react";
-import { useMutation, useQuery } from "convex/react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import TodoData from "@/components/TodoData";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { api } from "@/convex/_generated/api";
-import AppLayout from "./AuthLayout";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/router"; // Correct import path
-import { TodoType } from "@/types/type";
+import { useMutation, useQuery } from "convex/react";
+import { useState } from "react";
+import AppLayout from "./AuthLayout";
 
 const page = () => {
-    const [text, setText] = useState(""); // Define text state
     const [data, setData] = useState({
         text: "",
         completed: false // Corrected property name
